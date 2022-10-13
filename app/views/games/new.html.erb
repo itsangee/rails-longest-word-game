@@ -1,0 +1,10 @@
+<h1>Countdown</h1>
+<h2><%=@letters%></h2>
+
+<p>what's the longest word you can find?</p>
+<form action="/score" method="POST" data-turbo="false">
+  <input type="text" name="word">
+  <input type="submit" value="answer">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
+<%console%>
