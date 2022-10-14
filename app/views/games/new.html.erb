@@ -1,10 +1,21 @@
-<h1>Countdown</h1>
-<h2><%=@letters%></h2>
+<div class="container">
+  <h1>Countdown</h1>
 
-<p>what's the longest word you can find?</p>
-<form action="/score" method="POST" data-turbo="false">
-  <input type="text" name="word">
-  <input type="submit" value="answer">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-</form>
+    <ul class="letters">
+      <% @letters.each do |letter|%>
+        <li><%= letter %></li>
+      <% end %>
+    </ul>
+
+  <p>what's the longest word you can find?</p>
+
+  <form action="/score" method="POST" data-turbo="false">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :letters, @letters%>
+    <div class="input-group">
+      <input type="text" name="word">
+      <input type="submit" value="answer">
+    </div>
+  </form>
+</div>
 <%console%>
